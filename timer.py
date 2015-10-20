@@ -10,7 +10,6 @@ class Timer(threading.Thread):
     """
 
     def __init__(self, seconds, action=None, args=None, once=False):
-        self.counter = 0
         self.runTime = seconds
         self.args = args
         self.action = action
@@ -49,9 +48,6 @@ class Timer(threading.Thread):
     def stop(self):
         self.stopFlag = True
         self.stopEvent.set()
-
-    def get_counter(self):
-        return self.counter
 
     def is_stop(self):
         return self.stopEvent.isSet()
